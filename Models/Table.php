@@ -1,4 +1,4 @@
-<?php
+ <?php
 namespace Models;
 
 use Configs\Database as Database;
