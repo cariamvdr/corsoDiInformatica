@@ -2,7 +2,7 @@
 namespace Models\Users;
 
 trait DigitalUser{
-    private $email;
+    protected $email;
     
         public function getEmail(){
             return $this->email;

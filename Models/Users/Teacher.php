@@ -1,27 +1,42 @@
 <?php
 
 namespace Models\Users;
-
 use \Iterator as It;
 
 class Teacher extends Worker implements It {
 
     use DigitalUser;
+    
+    const TABLE_NAME = "teacher";
 
-    private $name;
-    private $age;
-    private $course;
-    private $company;
-    private $school;
-    private $position = 0;
+    protected $name;
+    protected $age;
+    protected $course;
+    protected $school;
+    protected $position = 0;
 
-    public function __construct($name, $age, $email, Course $course = null, School $school = null, $company = null) {
+    public function __construct($name = "", $age = null, $email = "", Course $course = null, School $school = null, $company = null) {
+        
+        parent::init($this);
+        
         $this->name = $name;
         $this->age = $age;
         $this->email = $email;
         $this->course = $course;
         $this->school = $school;
         $this->company = $company;
+    }
+    
+    static function getBindings(){
+        return [
+            "id"=>"id",
+            "name"=>"name",
+            "age"=>"age",
+            "email"=>"email",
+            //"course"=>"course",
+            //"school"=>"school",
+            "company"=>"company",
+        ];
     }
 
     public function current() {

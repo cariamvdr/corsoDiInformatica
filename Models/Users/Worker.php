@@ -1,8 +1,9 @@
 <?php
 namespace Models\Users;
+use Models\Table as Table;
 
-abstract class Worker implements Person{
-    private $company;
+abstract class Worker extends Table implements Person{
+    protected $company;
     
     public function getCompany(){
         return $this->company;

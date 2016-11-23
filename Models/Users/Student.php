@@ -7,16 +7,15 @@ class Student extends Table implements Person {
     
     use DigitalUser;
     
-    private $name;
-    private $age;
-    private $courses = array();
+    const TABLE_NAME = "student";
     
-    public static function getInstanceFromDb($id){
+    protected $name;
+    protected $age;
+    protected $courses = array();
+    
+    public function __construct($name="", $age="", $email="", $courses=[]){
         
-    }
-    
-    public function __construct($name, $age, $email, $courses=[]){
-        parent::__construct("student");
+        parent::init($this);
         
         $this->name=$name;
         $this->age=$age;
@@ -24,14 +23,13 @@ class Student extends Table implements Person {
         $this->courses=$courses;
     }
     
-    function loadFromDb($id){
-        $instance = $this->get($id);
-        if($instance){
-            foreach($instance as $key => $value){
-                if(strpos($key, "_") === false)
-                    $this->$key = $value;
-            }
-        }
+    static function getBindings(){
+        return [
+            "id"=>"id",
+            "name"=>"name",
+            "age"=>"age",
+            "email"=>"email",
+        ];
     }
 
     public function __toString(){
