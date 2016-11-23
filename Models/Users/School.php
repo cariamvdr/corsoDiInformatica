@@ -1,6 +1,6 @@
 <?php
 
-namespace Users;
+namespace Models\Users;
 
 class School implements \Iterator{
     private $name;

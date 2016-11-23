@@ -1,5 +1,5 @@
 <?php
-namespace Users;
+namespace Models\Users;
 
 class Course {
     private $name;

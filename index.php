@@ -6,14 +6,18 @@ spl_autoload_register(function($class_name) {
     require_once $class_name.".php";
 });
 
-use Users\Student as Student;
-use Users\Course as Course;
-use Users\Teacher as Teacher;
-use Users\School as School;
+use Models\Users\Student as Student;
+use Models\Users\Course as Course;
+use Models\Users\Teacher as Teacher;
+use Models\Users\School as School;
 
-$gianni = new Student( "Gianni" , 14 , "gianni@gianni.it" ) ;
+$gianni = new Student ( "Gianni" , 14 , "gianni@gianni.it" ) ;
 $pippo = new Student ( "Pippo" , 16 , "pippo@pippo.com" );
 $renzo = new Student ( "Renzo" , 18 , "renzo@renzo.org");
+
+$renzo->loadFromDb(3);
+
+die($renzo);
 
 //echo $gianni."<br>".$renzo."<br>".$pippo."<br>";
 

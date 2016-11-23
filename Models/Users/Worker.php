@@ -1,5 +1,5 @@
 <?php
-namespace Users;
+namespace Models\Users;
 
 abstract class Worker implements Person{
     private $company;

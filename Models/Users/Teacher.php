@@ -1,6 +1,6 @@
 <?php
 
-namespace Users;
+namespace Models\Users;
 
 use \Iterator as It;
 
